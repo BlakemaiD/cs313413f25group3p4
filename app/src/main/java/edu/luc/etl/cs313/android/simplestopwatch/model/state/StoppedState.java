@@ -12,19 +12,13 @@ class StoppedState implements StopwatchState {
 
     @Override
     public void onStartStop() {
-        sm.actionStart();
-        sm.toRunningState();
-    }
-
-    @Override
-    public void onLapReset() {
-        sm.actionReset();
-        sm.toStoppedState();
+        // Change Start/Stop button to Increment
+        sm.actionInc();
     }
 
     @Override
     public void onTick() {
-        throw new UnsupportedOperationException("onTick");
+        // Need to implement 3s countdown to alarm
     }
 
     @Override
