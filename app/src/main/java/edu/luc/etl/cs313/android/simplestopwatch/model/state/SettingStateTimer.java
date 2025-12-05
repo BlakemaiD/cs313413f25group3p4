@@ -46,7 +46,7 @@ class SettingStateTimer implements StopwatchState {
 
     @Override
     public void updateView() {
-        sm.updateUILaptime();
+        sm.updateUIRuntime();
     }
 
     @Override
