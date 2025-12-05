@@ -26,7 +26,6 @@ public class DefaultTimeModel implements TimeModel {
        }
     }
 
-    //Add a decRuntime() Method for when 3 seconds pass to decrease time/
     public void decRuntime() {
         if (runningTime > 0) {
             runningTime -= 1;
