@@ -61,14 +61,18 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
      * Updates the seconds and minutes in the UI.
      * @param time
      */
-    public void onTimeUpdate(final int time) {
+   public void onTimeUpdate(final int time) { //Display will show the
         // UI adapter responsibility to schedule incoming events on UI thread
         runOnUiThread(() -> {
             final TextView tvS = findViewById(R.id.seconds);
             final TextView tvM = findViewById(R.id.minutes);
-            final var locale = Locale.getDefault();
+            /*
             tvS.setText(String.format(locale,"%02d", time % Constants.SEC_PER_MIN));
             tvM.setText(String.format(locale,"%02d", time / Constants.SEC_PER_MIN));
+             */
+            final var locale = Locale.getDefault();
+            tvS.setText(String.format(locale, "%02d", time));
+            tvM.setText("");
         });
     }
 
@@ -96,3 +100,4 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
         model.onLapReset();
     }
 }
+
