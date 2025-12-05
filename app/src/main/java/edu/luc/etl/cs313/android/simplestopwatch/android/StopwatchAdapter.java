@@ -85,11 +85,14 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
     }
 
     // forward event listener methods to the model
+
     public void onStartStop(final View view) {
         model.onStartStop();
-    }
+    } //will be used as the timmer button
 
-    public void onLapReset(final View view)  {
+    //TODO: Use this section as theOne multi-function button for the timer
+
+    public void onLapReset(final View view)  { //Could be removed.
         model.onLapReset();
     }
 }

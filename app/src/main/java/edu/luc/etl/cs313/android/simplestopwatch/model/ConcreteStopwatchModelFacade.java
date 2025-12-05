@@ -21,7 +21,7 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 
     private final TimeModel timeModel;
 
-    public ConcreteStopwatchModelFacade() {
+    public ConcreteStopwatchModelFacade() { //TODO: Change this to Stopwatch requirements rather than stopwatch
         timeModel = new DefaultTimeModel();
         clockModel = new DefaultClockModel();
         stateMachine = new DefaultStopwatchStateMachine(timeModel, clockModel);
@@ -41,7 +41,7 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
     @Override
     public void onStartStop() {
         stateMachine.onStartStop();
-    }
+    } //New button
 
     @Override
     public void onLapReset() {
