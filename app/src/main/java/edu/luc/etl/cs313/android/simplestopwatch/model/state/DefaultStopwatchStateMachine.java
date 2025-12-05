@@ -50,7 +50,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
     private final StopwatchState RUNNING     = new RunningState(this);
-    private final StopwatchState LAP_RUNNING = new LapRunningState(this);
+    private final StopwatchState LAP_RUNNING = new SettingStateTimer(this);
     private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
 
     // transitions
@@ -70,6 +70,9 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void actionDec() {
         timeModel.decRuntime();;
         actionUpdateView();
+    }
+    public int getTime() {
+        return timeModel.getRuntime();
     }
     @Override public void actionUpdateView() { state.updateView(); }
 }

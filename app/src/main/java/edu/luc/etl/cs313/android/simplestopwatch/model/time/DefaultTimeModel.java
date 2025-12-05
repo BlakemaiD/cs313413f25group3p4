@@ -46,4 +46,6 @@ public class DefaultTimeModel implements TimeModel {
     public int getLaptime() {
         return lapTime;
     }
+
+
 }

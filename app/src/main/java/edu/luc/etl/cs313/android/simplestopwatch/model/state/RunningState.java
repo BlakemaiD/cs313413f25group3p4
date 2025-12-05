@@ -3,7 +3,7 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
 class RunningState implements StopwatchState {
-
+    //this will be the state for when the time is counting down
     public RunningState(final StopwatchSMStateView sm) {
         this.sm = sm;
     }

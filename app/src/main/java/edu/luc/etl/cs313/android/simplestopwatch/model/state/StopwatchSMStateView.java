@@ -27,4 +27,5 @@ interface StopwatchSMStateView {
     void updateUIRuntime();
     void updateUILaptime();
     void actionDec(); //Added from the Default StopwatchState
+    int getTime();
 }
