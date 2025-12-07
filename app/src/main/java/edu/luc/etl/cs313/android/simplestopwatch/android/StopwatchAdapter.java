@@ -9,7 +9,6 @@ import android.widget.TextView;
 import java.util.Locale;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
-import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchModelListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.ConcreteStopwatchModelFacade;
 import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
@@ -36,7 +35,7 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // inject dependency on view so this adapter receives UI events
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_main);
         // inject dependency on model into this so model receives UI events
         this.setModel(new ConcreteStopwatchModelFacade());
         // inject dependency on this into model to register for UI updates
@@ -55,10 +54,8 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
         model.start();
     }
 
-    // TODO remaining lifecycle methods
-
     /**
-     * Updates the seconds and minutes in the UI.
+     *
      * @param time
      */
    public void onTimeUpdate(final int time) { //Display will show the
@@ -88,13 +85,9 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
         });
     }
 
-    // forward event listener methods to the model
-
     public void onStartStop(final View view) {
         model.onStartStop();
-    } //will be used as the timmer button
-
-    //TODO: Use this section as theOne multi-function button for the timer
+    } 
 
     public void onLapReset(final View view)  { //Could be removed.
         model.onLapReset();
