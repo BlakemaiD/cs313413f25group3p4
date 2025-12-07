@@ -13,10 +13,10 @@ class StoppedState implements StopwatchState {
 
     @Override
     public void onStartStop() {
-        //when the timer is on stop, it is increased when user presses the button
+        //Button pressed = numberDisplayed++;
         sm.actionInc();
-        //sm.toRunningState();
-        sm.toLapRunningState(); //LapRunningState will now become the count down after 3 seconds, to repourpose the file
+        sm.toLapRunningState(); //LapRunningState will now become the  after 3 seconds,
+        sm.actionStart();
     }
 
     @Override
@@ -27,7 +27,7 @@ class StoppedState implements StopwatchState {
 
     @Override
     public void onTick() {
-        throw new UnsupportedOperationException("onTick");
+        //throw new UnsupportedOperationException("onTick");
     }
 
     @Override
