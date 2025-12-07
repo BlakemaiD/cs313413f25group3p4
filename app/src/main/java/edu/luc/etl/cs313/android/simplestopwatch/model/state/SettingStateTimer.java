@@ -12,36 +12,40 @@ class SettingStateTimer implements StopwatchState {
 
     private final StopwatchSMStateView sm;
 
-    @Override
-    public void onStartStop() { //TODO: Implement a loop that checks the time
-        //when it is pressed
+    private int countSeconds = 0;
 
-        if(sm.getTime() < 99) {
-            sm.actionInc();
-            sm.toLapRunningState();
-        } else {
-            //if time is >= 99, (Has not implemented the 3sec); it beeps and starts running.
-            //sm.beep(); //Add the beep sound once it works
+    @Override
+    public void onStartStop() {
+
+        sm.actionInc();
+        countSeconds = 0;
+
+        if(sm.getTime() == 99) {
             sm.toRunningState();
             sm.actionStart();
+        } else if (sm.getTime() > 99) {
+            sm.actionReset();
+            sm.toStoppedState();
+        } else {
+            sm.toLapRunningState();
         }
-
-
-
-        sm.actionStop();
-        sm.toLapStoppedState();
     }
 
     @Override
     public void onLapReset() {
-       // sm.toRunningState();
-       // sm.actionUpdateView();
+        sm.actionReset();
+        sm.toStoppedState();
+        countSeconds = 0;
     }
 
     @Override
     public void onTick() {
-       // sm.actionInc();
-       // sm.toLapRunningState();
+        countSeconds++;
+
+        if(countSeconds >= 3 && sm.getTime() > 0) {
+            sm.actionDec();
+            sm.toRunningState();
+        }
     }
 
     @Override
