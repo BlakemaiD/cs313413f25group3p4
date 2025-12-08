@@ -13,12 +13,14 @@ class LapStoppedState implements StopwatchState {
 
     @Override
     public void onStartStop() {
+        sm.actionAlarmStop();
         sm.actionReset(); //changed to reset temp.
         sm.toStoppedState();
     }
 
     @Override
     public void onLapReset() {
+        sm.actionAlarmStop();
         sm.actionReset();
         sm.toStoppedState();
     }
@@ -38,3 +40,4 @@ class LapStoppedState implements StopwatchState {
         return R.string.LAP_STOPPED;
     }
 }
+
