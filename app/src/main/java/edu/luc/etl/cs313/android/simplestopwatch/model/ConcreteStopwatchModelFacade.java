@@ -21,7 +21,7 @@ public class ConcreteStopwatchModelFacade implements StopwatchModelFacade {
 
     private final TimeModel timeModel;
 
-    public ConcreteStopwatchModelFacade() { //TODO: Change this to Stopwatch requirements rather than stopwatch
+    public ConcreteStopwatchModelFacade() { /
         timeModel = new DefaultTimeModel();
         clockModel = new DefaultClockModel();
         stateMachine = new DefaultStopwatchStateMachine(timeModel, clockModel);
