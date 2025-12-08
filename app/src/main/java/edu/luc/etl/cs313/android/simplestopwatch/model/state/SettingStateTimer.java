@@ -14,6 +14,7 @@ class SettingStateTimer implements StopwatchState {
 
     private int countSeconds = 0;
 
+
     @Override
     public void onStartStop() {
 
@@ -21,9 +22,11 @@ class SettingStateTimer implements StopwatchState {
         countSeconds = 0;
 
         if(sm.getTime() == 99) {
+            sm.actionBeep();
             sm.toRunningState();
             sm.actionStart();
         } else if (sm.getTime() > 99) {
+            sm.actionBeep();
             sm.actionReset();
             sm.toStoppedState();
         } else {
@@ -43,6 +46,7 @@ class SettingStateTimer implements StopwatchState {
         countSeconds++;
 
         if(countSeconds >= 3 && sm.getTime() > 0) {
+            sm.actionBeep();
             sm.actionDec();
             sm.toRunningState();
         }
