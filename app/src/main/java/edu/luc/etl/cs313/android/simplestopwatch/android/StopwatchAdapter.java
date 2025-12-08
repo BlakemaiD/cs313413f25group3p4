@@ -6,6 +6,12 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
+//Some of the android media sounds, used from clickcounter android
+import android.media.AudioAttributes;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
+
 import java.util.Locale;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
@@ -93,4 +99,5 @@ public class StopwatchAdapter extends Activity implements StopwatchModelListener
         model.onLapReset();
     }
 }
+
 
