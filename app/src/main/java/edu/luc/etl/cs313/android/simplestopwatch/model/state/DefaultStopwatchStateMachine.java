@@ -50,13 +50,13 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     // known states
     private final StopwatchState STOPPED     = new StoppedState(this);
     private final StopwatchState RUNNING     = new RunningState(this);
-    private final StopwatchState SETTING = new SettingStateTimer(this);
-    private final StopwatchState LAP_STOPPED = new AlarmState(this);
+    private final StopwatchState LAP_RUNNING = new SettingStateTimer(this);
+    private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
 
     // transitions
     @Override public void toRunningState()    { setState(RUNNING); }
     @Override public void toStoppedState()    { setState(STOPPED); }
-    @Override public void toLapRunningState() { setState(SETTING); }
+    @Override public void toLapRunningState() { setState(LAP_RUNNING); }
     @Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
     // actions
@@ -75,6 +75,25 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
         return timeModel.getRuntime();
     }
     @Override public void actionUpdateView() { state.updateView(); }
+
+    //sound beeping
+    public void actionBeep() {
+        if (listener != null) {
+            listener.onBeep();
+        }
+    }
+
+   public void actionAlarmStart() {
+        if (listener != null) {
+            listener.onAlarmStart();
+        }
+    }
+
+    public void actionAlarmStop() {
+        if (listener != null) {
+            listener.onAlarmStop();
+        }
+    }
 }
 
 
