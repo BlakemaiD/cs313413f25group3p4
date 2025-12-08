@@ -28,4 +28,10 @@ interface StopwatchSMStateView {
     void updateUILaptime();
     void actionDec(); //Added from the Default StopwatchState
     int getTime();
+
+    //Soundrelated methods
+    void actionBeep();
+    void actionAlarmStart();
+    void actionAlarmStop();
 }
+
