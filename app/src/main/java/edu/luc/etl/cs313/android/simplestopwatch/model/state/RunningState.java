@@ -41,6 +41,7 @@ class RunningState implements StopwatchState {
         sm.actionDec();
             if (sm.getTime() == 0) {
                 sm.actionStop();
+                sm.actionAlarmStart();
                 sm.toLapRunningState();
                 sm.actionReset();
             }
@@ -57,5 +58,6 @@ class RunningState implements StopwatchState {
         return R.string.RUNNING;
     }
 }
+
 
 
